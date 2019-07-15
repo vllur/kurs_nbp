@@ -1,0 +1,40 @@
+.KursBlock{
+  border-radius: 5px;
+  max-width: 20em;
+  padding: 0.5em;
+  margin: 0.5em;
+
+  background-color: #222;
+  color: #fff;
+}
+
+.KursBlock > h3{
+  margin: 0 0 0.25em 0;
+}
+
+.KursBlock > div{
+  display: flex;
+  justify-content: space-around;
+  margin: 0.5em 0;
+  padding: 0.25em;
+
+  background-color: #2a2a2a;
+}
+
+.KursBlock > div > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.KursBlock-currency{
+  font-weight: bold;
+
+  color: #98da00;
+}
+
+.KursBlock-disabled{
+  font-size: 85%;
+
+  color: #acacac;
+}

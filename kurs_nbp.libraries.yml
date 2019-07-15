@@ -1,0 +1,4 @@
+kurs_nbp:
+  css:
+    theme:
+      css/KursBlock.css: {}

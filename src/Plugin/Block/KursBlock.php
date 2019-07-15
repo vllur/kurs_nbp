@@ -24,7 +24,7 @@ class KursBlock extends BlockBase {
     }
 
     $values=[];
-    $markup = "<div>";
+    $markup = '<div class="KursBlock"><h3>Kursy walut</h3>';
     $date = "";
 
     $currencies = explode(' ', $currencies);
@@ -39,15 +39,20 @@ class KursBlock extends BlockBase {
       $date = $jsonarray["rates"][0]["effectiveDate"];
     }
 
-    $time = '<time datetime="' . $date . ' 8:00">' . $date . ", godz. 8:00</time>";
+    $time = '<time class="KursBlock-disabled" datetime="' . $date . ' 8:00">' . $date . ", godz. 8:00</time>";
     $markup = $markup . $time;
 
     foreach ($values as $currencyname => $value) {
-      $markup = $markup . "<div>" . $currencyname . ": skup: " . $values[$currencyname]["buy"] . ", sprzedaz: " . $values[$currencyname]["sell"] . "</div>";
+      $markup = $markup . '<div><div class="KursBlock-currency">' . $currencyname . '</div><div> <div class="KursBlock-disabled">Skup: </div><div>' . $values[$currencyname]["buy"] . '</div></div><div><div class="KursBlock-disabled">Sprzedaż: </div><div>' . $values[$currencyname]["sell"] . "</div></div></div>";
     }
 
     return array (
-      '#markup' => $markup."</div>"
+      '#markup' => $markup."</div>",
+      '#attached' => [
+        'library' => [
+          'kurs_nbp/kurs_nbp',
+        ]
+      ]
     );
   }
 
