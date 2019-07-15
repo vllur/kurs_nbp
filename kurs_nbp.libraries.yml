@@ -2,3 +2,13 @@ kurs_nbp:
   css:
     theme:
       css/KursBlock.css: {}
+
+dark:
+  css:
+    theme:
+      css/dark.css: {}
+
+light:
+  css:
+    theme:
+      css/light.css: {}

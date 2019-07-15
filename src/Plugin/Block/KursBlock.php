@@ -16,11 +16,19 @@ class KursBlock extends BlockBase {
    */
   public function build() {
     $config = $this->getConfiguration();
-    if (!empty($config['kurs_block_settings'])) {
-      $currencies = $config['kurs_block_settings'];
+
+    if (!empty($config['kurs_block_currencies'])) {
+      $currencies = $config['kurs_block_currencies'];
     }
     else {
       $currencies = $this->t('USD EUR');
+    }
+
+    if (!empty($config['kurs_block_style'])) {
+      $style = $config['kurs_block_style'];;
+    }
+    else {
+      $style = $this->t('dark');
     }
 
     $values=[];
@@ -46,11 +54,18 @@ class KursBlock extends BlockBase {
       $markup = $markup . '<div><div class="KursBlock-currency">' . $currencyname . '</div><div> <div class="KursBlock-disabled">Skup: </div><div>' . $values[$currencyname]["buy"] . '</div></div><div><div class="KursBlock-disabled">Sprzedaż: </div><div>' . $values[$currencyname]["sell"] . "</div></div></div>";
     }
 
+    if ( $style == "light" ) {
+      $style_css = "kurs_nbp/light";
+    } else {
+      $style_css = "kurs_nbp/dark";
+    }
+
     return array (
       '#markup' => $markup."</div>",
       '#attached' => [
         'library' => [
           'kurs_nbp/kurs_nbp',
+          $style_css,
         ]
       ]
     );
@@ -63,12 +78,18 @@ class KursBlock extends BlockBase {
     $form = parent::blockForm($form, $form_state);
     $default_config = \Drupal::config('kurs_nbp.settings');
     $config = $this->getConfiguration();
-    $form['kurs_block_settings'] = array (
+    $form['kurs_block_currencies'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Currencies'),
       '#description' => $this->t('Type space separated currencies. Default: "USD EUR"'),
-      '#default_value' => isset($config['kurs_block_settings']) ? $config['kurs_block_settings'] : $default_config->get('kurs.currencies'),
-    );
+      '#default_value' => isset($config['kurs_block_currencies']) ? $config['kurs_block_currencies'] : $default_config->get('kurs.currencies'),
+    ];
+    $form['kurs_block_style'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Style'),
+      '#description' => $this->t('Choose between "light" or "dark". Default: "dark"'),
+      '#default_value' => isset($config['kurs_block_style']) ? $config['kurs_block_style'] : $default_config->get('kurs.style'),
+    ];
     return $form;
   }
 
@@ -76,6 +97,9 @@ class KursBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function blockSubmit($form, FormStateInterface $form_state) {
-    $this->setConfigurationValue('kurs_block_settings', $form_state->getValue('kurs_block_settings'));
+    parent::blockSubmit($form, $form_state);
+    $values = $form_state->getValues();
+    $this->configuration['kurs_block_currencies'] = $values['kurs_block_currencies'];
+    $this->configuration['kurs_block_style'] = $values['kurs_block_style'];
   }
 }

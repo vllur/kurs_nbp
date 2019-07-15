@@ -1,0 +1,16 @@
+.KursBlock{
+  background-color: #e8e8e8;
+  color: #3a3431;
+}
+
+.KursBlock > div{
+  background-color: #f2f2f2;
+}
+
+.KursBlock-currency{
+  color: #7fb500;
+}
+
+.KursBlock-disabled{
+  color: #666;
+}
