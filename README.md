@@ -1,6 +1,8 @@
 # kurs_nbp
 `kurs_nbp` is a simple Drupal 8 module for fetching exchange rates from NBP (Narodowy Bank Polski).
 
+![Kurs NPB block](img/README.md/0.png)
+
 It provides customizable block for displaying selected exchange rates.
 
 
@@ -29,8 +31,12 @@ Now find "Kurs NBP" block and press `Place block` near it - a popup will show up
 
 After you have done configuring, press `Save block`. Now you can go back to home page of your site and see the exchange rates.
 
+For now, you an place as many blocks as you want, however they will share the same style - different currencies works fine.
+
 ### Variables
 To customize your block, you can modify the default values of the currencies and style fields.
+
+![Drupal block settings](img/README.md/1.png)
 
 #### Currencies
 *Type space separated currencies. Default: "USD EUR"*
@@ -40,7 +46,10 @@ This field can be feed with any number of vaild three letter currency names, cas
 #### Style
 *Choose between "light" or "dark". Default: "dark"*
 
-This field takes only two strings - 'light' or 'dark'. It changes the color scheme of block you are modifing.
+This field takes only two strings - 'light' or 'dark'. It changes the color scheme of all 'Kurs NBP' blocks if all of them have the same setting.
+
+![Dark style](img/README.md/2.png)
+![Light style](img/README.md/3.png)
 
 
 ## Files
@@ -60,6 +69,13 @@ If something goes wrong, follow these steps:
  - uninstall module, clear the cache and install it again
 
 If it does not solve your problem, feel free to post an [issue](https://github.com/vllur/kurs_nbp/issues/new) describing the situation.
+
+
+## Contributing
+If you have an idea or you have found a bug, open an [issue](https://github.com/vllur/kurs_nbp/issues/new).
+
+Pull request are welcome, but please first open [issue](https://github.com/vllur/kurs_nbp/issues/new) to make sure no effort will be wasted.
+
 
 ## License
 This repository and its content are under the terms of MIT license. See [LICENSE](LICENSE) for more information.
