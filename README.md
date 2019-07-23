@@ -58,8 +58,11 @@ This field takes only two strings - 'light' or 'dark'. It changes the color sche
 `config/install/kurs.nbp.settings.yml` is holding the default values for user input.
 
 `css/` directory contains all styling.
+
 `css/KursBlock.css` - here you can find all styling, except the colors.
+
 `css/dark.css` - colors for the dark style.
+
 `css/light.css` - colors for the light style.
 
 
