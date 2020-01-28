@@ -77,8 +77,6 @@ If it does not solve your problem, feel free to post an [issue](https://github.c
 ## Contributing
 If you have an idea or you have found a bug, open an [issue](https://github.com/vllur/kurs_nbp/issues/new).
 
-Pull request are welcome, but please first open [issue](https://github.com/vllur/kurs_nbp/issues/new) to make sure no effort will be wasted.
-
 
 ## License
 This repository and its content are under the terms of MIT license. See [LICENSE](LICENSE) for more information.
