@@ -1,4 +1,4 @@
-# kurs_nbp
+# Kurs NBP
 `kurs_nbp` is a simple Drupal 8 module for fetching exchange rates from NBP (Narodowy Bank Polski).
 
 ![Kurs NPB block](img/README.md/0.png)
